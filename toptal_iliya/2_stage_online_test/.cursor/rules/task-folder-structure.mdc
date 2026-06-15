@@ -1,0 +1,10 @@
+---
+description: Each Toptal task gets its own folder with solution and test files
+alwaysApply: true
+---
+
+# Task folder structure
+
+- Create a new folder for every task: `task1/`, `task2/`, etc.
+- Each folder contains at minimum `solution.js` and `test-input.txt`.
+- Solutions use the exact function signature given by the problem.

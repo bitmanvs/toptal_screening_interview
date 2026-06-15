@@ -1,0 +1,11 @@
+---
+description: Toptal prep — JavaScript only for code and practice artifacts
+alwaysApply: true
+---
+
+# JavaScript only
+
+- **Tech stack for this workspace:** JavaScript (Node.js) for all code, solutions, templates, and practice files.
+- Do **not** add Python, Java, C++, or other language solutions unless the user explicitly asks for a different language.
+- Use `.js` (CommonJS or ESM consistently within a file). Prefer clear, interview-friendly code over framework-heavy setups unless the task requires a framework.
+- Shell scripts (e.g. `.ps1`) are allowed for environment checks only.

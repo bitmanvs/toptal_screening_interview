@@ -1,0 +1,9 @@
+{
+  "name": "ecommerce-orders",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "task": "node src/index.js"
+  }
+}

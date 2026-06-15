@@ -1,0 +1,350 @@
+[
+  {
+    "order_id": 1,
+    "order_number": 4801231,
+    "customer_id": 1,
+    "customer_name": "Russell Smith",
+    "seller_id": 1,
+    "seller_name": "Eco Electronics",
+    "order_items": [
+      {
+        "product_id": 10,
+        "product_name": "Portable Charger",
+        "product_category": "Electronics",
+        "quantity": 1,
+        "unit_price": 49.99
+      }
+    ],
+    "shipping_address": {
+      "line": "3538 Rebecca Street",
+      "city": "Sacramento",
+      "state": "CA",
+      "postal_code": "98157",
+      "country": "USA"
+    },
+    "loyalty_points": 5,
+    "order_status": "Confirmed",
+    "created_at": "2021-10-15T19:16:35Z",
+    "updated_at": "2021-10-15T19:16:35Z"
+  },
+  {
+    "order_id": 2,
+    "order_number": 4811252,
+    "customer_id": 2,
+    "customer_name": "Nate Hambly",
+    "seller_id": 1,
+    "seller_name": "Eco Electronics",
+    "order_items": [
+      {
+        "product_id": 93,
+        "product_name": "iPhone 14 Pro Max",
+        "product_category": "Electronics",
+        "quantity": 1,
+        "unit_price": 1299.0
+      },
+      {
+        "product_id": 94,
+        "product_name": "20W USB-C Power Adapter",
+        "product_category": "Electronics",
+        "quantity": 1,
+        "unit_price": 19.0
+      },
+      {
+        "product_id": 99,
+        "product_name": "AirPods (3rd generation)",
+        "product_category": "Electronics",
+        "quantity": 1,
+        "unit_price": 179.0
+      }
+    ],
+    "shipping_address": {
+      "line": "2975 University Street",
+      "city": "Auburn",
+      "state": "AL",
+      "postal_code": "95157",
+      "country": "USA"
+    },
+    "loyalty_points": 109,
+    "order_status": "Fulfilled",
+    "created_at": "2022-12-05T03:25:00Z",
+    "updated_at": "2022-12-05T03:25:00Z"
+  },
+  {
+    "order_id": 3,
+    "order_number": 4813210,
+    "customer_id": 4,
+    "customer_name": "Evelyn Castro",
+    "seller_id": 193,
+    "seller_name": "No Frills",
+    "order_items": [
+      {
+        "product_id": 1024,
+        "product_name": "Cow Milk 1l",
+        "product_category": "Grocery",
+        "quantity": 2,
+        "unit_price": 2.5
+      },
+      {
+        "product_id": 1029,
+        "product_name": "Oreo Cookies 250g",
+        "product_category": "Grocery",
+        "quantity": 6,
+        "unit_price": 0.9
+      },
+      {
+        "product_id": 1033,
+        "product_name": "Organic Dark Chocolate 2.65oz",
+        "product_category": "Grocery",
+        "quantity": 6,
+        "unit_price": 3.59
+      }
+    ],
+    "shipping_address": {
+      "line": "46 Creek Street",
+      "city": "West Prairie",
+      "state": "",
+      "postal_code": "4403",
+      "country": "AU"
+    },
+    "loyalty_points": 13,
+    "order_status": "Out-for-delivery",
+    "created_at": "2022-02-15T12:48:45Z",
+    "updated_at": "2022-02-15T12:48:45Z"
+  },
+  {
+    "order_id": 4,
+    "order_number": 4813222,
+    "customer_id": 1,
+    "customer_name": "Russell Smith",
+    "seller_id": 193,
+    "seller_name": "No Frills",
+    "order_items": [
+      {
+        "product_id": 1087,
+        "product_name": "Roasted Cashews Sea Salt 1.25oz",
+        "product_category": "Grocery",
+        "quantity": 10,
+        "unit_price": 1.01
+      },
+      {
+        "product_id": 1054,
+        "product_name": "Avocado Oil Potato Chips 5oz",
+        "product_category": "Grocery",
+        "quantity": 12,
+        "unit_price": 3.19
+      },
+      {
+        "product_id": 1033,
+        "product_name": "Organic Dark Chocolate 2.65oz",
+        "product_category": "Grocery",
+        "quantity": 5,
+        "unit_price": 3.59
+      },
+      {
+        "product_id": 1034,
+        "product_name": "Organic White Chocolate 3.17oz",
+        "product_category": "Grocery",
+        "quantity": 5,
+        "unit_price": 3.09
+      },
+      {
+        "product_id": 1089,
+        "product_name": "Organic Fair Trade Instant Coffee 3.53oz",
+        "product_category": "Grocery",
+        "quantity": 1,
+        "unit_price": 9.49
+      }
+    ],
+    "shipping_address": {
+      "line": "3538 Rebecca Street",
+      "city": "Sacramento",
+      "state": "CA",
+      "postal_code": "98157",
+      "country": "USA"
+    },
+    "loyalty_points": 50,
+    "order_status": "Fulfilled",
+    "created_at": "2022-12-05T19:16:35Z",
+    "updated_at": "2022-12-05T19:16:35Z"
+  },
+  {
+    "order_id": 5,
+    "order_number": 4820009,
+    "customer_id": 57,
+    "customer_name": "Russell Smith",
+    "seller_id": 193,
+    "seller_name": "No Frills",
+    "order_items": [
+      {
+        "product_id": 3508,
+        "product_name": "Full-Size Nonstick Iron",
+        "product_category": "Home Appliances",
+        "quantity": 1,
+        "unit_price": 20.86
+      },
+      {
+        "product_id": 3698,
+        "product_name": "Portable Handheld Clothing Steamer",
+        "product_category": "Home Appliances",
+        "quantity": 1,
+        "unit_price": 29.99
+      }
+    ],
+    "shipping_address": {
+      "line": "109 Hastings Street",
+      "city": "Vancouver",
+      "state": "BC",
+      "postal_code": "V6C1B4",
+      "country": "CA"
+    },
+    "loyalty_points": 50,
+    "order_status": "Processing",
+    "created_at": "2022-12-05T19:16:35Z",
+    "updated_at": "2022-12-05T19:16:35Z"
+  },
+  {
+    "order_id": 6,
+    "order_number": 4824959,
+    "customer_id": 1,
+    "customer_name": "Russell Smith",
+    "seller_id": 245,
+    "seller_name": "Acme Tools",
+    "order_items": [
+      {
+        "product_id": 4210,
+        "product_name": "Drill/Driver Kit",
+        "product_category": "Power Tools",
+        "quantity": 1,
+        "unit_price": 99.99
+      },
+      {
+        "product_id": 4630,
+        "product_name": "Impact Duty Drill and Driver Bit Set with 15pc",
+        "product_category": "Power Tools",
+        "quantity": 2,
+        "unit_price": 44.96
+      },
+      {
+        "product_id": 4440,
+        "product_name": "Cordless Cable Stapler Bundle with 5 Boxes of Staples Kit",
+        "product_category": "Power Tools",
+        "quantity": 1,
+        "unit_price": 275.0
+      }
+    ],
+    "shipping_address": {
+      "line": "109 Hastings Street",
+      "city": "Vancouver",
+      "state": "BC",
+      "postal_code": "V6C1B4",
+      "country": "CA"
+    },
+    "loyalty_points": 120,
+    "order_status": "Delivered",
+    "created_at": "2022-12-07T13:45:21Z",
+    "updated_at": "2022-12-07T13:48:42Z"
+  },
+  {
+    "order_id": 7,
+    "order_number": 4901032,
+    "customer_id": 2,
+    "customer_name": "Nate Hambly",
+    "seller_id": 206,
+    "seller_name": "Walmart",
+    "order_items": [
+      {
+        "product_id": 3793,
+        "product_name": "Portable Countertop Dishwasher",
+        "product_category": "Electronics",
+        "quantity": 1,
+        "unit_price": 299.99
+      },
+      {
+        "product_id": 3794,
+        "product_name": "Pressure Cooker",
+        "product_category": "Home Appliances",
+        "quantity": 1,
+        "unit_price": 114.95
+      },
+      {
+        "product_id": 3799,
+        "product_name": "Lightweight Corded Stick Vacuum",
+        "product_category": "Electronics",
+        "quantity": 2,
+        "unit_price": 20.0
+      }
+    ],
+    "shipping_address": {
+      "line": "2975 University Street",
+      "city": "Auburn",
+      "state": "AL",
+      "postal_code": "95157",
+      "country": "USA"
+    },
+    "loyalty_points": 109,
+    "created_at": "2022-12-07T11:04:27Z",
+    "updated_at": "2022-12-07T11:04:27Z"
+  },
+  {
+    "order_id": 8,
+    "order_number": 4901232,
+    "customer_id": 341,
+    "customer_name": "Rickie Brooks",
+    "seller_id": 245,
+    "seller_name": "Acme Tools",
+    "order_items": [
+      {
+        "product_id": 4210,
+        "product_name": "Drill/Driver Kit",
+        "product_category": "Power Tools",
+        "quantity": 3,
+        "unit_price": 99.99
+      }
+    ],
+    "shipping_address": {
+      "line": "2491 James Street",
+      "city": "St Catharines",
+      "state": "ON",
+      "postal_code": "L2R3H6",
+      "country": "CA"
+    },
+    "loyalty_points": 25,
+    "order_status": "Fulfilled",
+    "created_at": "2022-12-05T11:42:14Z",
+    "updated_at": "2022-12-05T11:42:14Z"
+  },
+  {
+    "order_id": 9,
+    "order_number": 5001232,
+    "customer_id": 341,
+    "customer_name": "Rickie Brooks",
+    "seller_id": 206,
+    "seller_name": "Walmart",
+    "order_items": [
+      {
+        "product_id": 3794,
+        "product_name": "Pressure Cooker",
+        "product_category": "Home Appliances",
+        "quantity": 1,
+        "unit_price": 114.95
+      },
+      {
+        "product_id": 3799,
+        "product_name": "Lightweight Corded Stick Vacuum",
+        "product_category": "Electronics",
+        "quantity": 2,
+        "unit_price": 20.0
+      }
+    ],
+    "shipping_address": {
+      "line": "2491 James Street",
+      "city": "St Catharines",
+      "state": "ON",
+      "postal_code": "L2R3H6",
+      "country": "CA"
+    },
+    "loyalty_points": 125,
+    "created_at": "2022-12-08T11:42:14Z",
+    "updated_at": "2022-12-08T11:42:14Z"
+  }
+]
