@@ -1,0 +1,367 @@
+{
+	"info": {
+		"_postman_id": "b4c2a1e7-9f3d-4d2a-8c1b-6a0f5e2d7a10",
+		"name": "Food Delivery API",
+		"description": "Functional verification for the Food Delivery API. Log in once and the access token is captured automatically; created resource IDs (restaurant, meal, order) are chained between requests.\n\nRecommended run order: Auth > Admin - Users > Restaurants > Meals > Coupons > Orders. Re-run the matching Login request before role-specific actions (owner for status processing/in_route/delivered, customer for received).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{ "key": "base_url", "value": "http://127.0.0.1:8000" },
+		{ "key": "admin_email", "value": "admin@fooddelivery.local" },
+		{ "key": "admin_password", "value": "Admin12345!" },
+		{ "key": "owner_email", "value": "messi@worldcup.com" },
+		{ "key": "owner_password", "value": "password123" },
+		{ "key": "owner2_email", "value": "yamal@worldcup.com" },
+		{ "key": "owner2_password", "value": "password123" },
+		{ "key": "customer_email", "value": "fan_david@worldcup.com" },
+		{ "key": "customer_password", "value": "password123" },
+		{ "key": "customer2_email", "value": "fan_john@worldcup.com" },
+		{ "key": "customer2_password", "value": "password123" },
+		{ "key": "token", "value": "" },
+		{ "key": "refresh", "value": "" },
+		{ "key": "user_id", "value": "" },
+		{ "key": "restaurant_id", "value": "" },
+		{ "key": "meal_id", "value": "" },
+		{ "key": "fries_id", "value": "" },
+		{ "key": "coupon_code", "value": "" },
+		{ "key": "order_id", "value": "" }
+	],
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register Customer",
+					"request": {
+						"auth": { "type": "noauth" },
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"email\": \"{{customer_email}}\", \"password\": \"{{customer_password}}\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/auth/register/", "host": [ "{{base_url}}" ], "path": [ "api", "auth", "register", "" ] }
+					}
+				},
+				{
+					"name": "Login (Admin)",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.access) { pm.collectionVariables.set('token', json.access); }", "if (json.refresh) { pm.collectionVariables.set('refresh', json.refresh); }" ] } } ],
+					"request": {
+						"auth": { "type": "noauth" },
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"email\": \"{{admin_email}}\", \"password\": \"{{admin_password}}\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/auth/login/", "host": [ "{{base_url}}" ], "path": [ "api", "auth", "login", "" ] }
+					}
+				},
+				{
+					"name": "Login (Owner)",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.access) { pm.collectionVariables.set('token', json.access); }", "if (json.refresh) { pm.collectionVariables.set('refresh', json.refresh); }" ] } } ],
+					"request": {
+						"auth": { "type": "noauth" },
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"email\": \"{{owner_email}}\", \"password\": \"{{owner_password}}\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/auth/login/", "host": [ "{{base_url}}" ], "path": [ "api", "auth", "login", "" ] }
+					}
+				},
+				{
+					"name": "Login (Customer)",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.access) { pm.collectionVariables.set('token', json.access); }", "if (json.refresh) { pm.collectionVariables.set('refresh', json.refresh); }" ] } } ],
+					"request": {
+						"auth": { "type": "noauth" },
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"email\": \"{{customer_email}}\", \"password\": \"{{customer_password}}\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/auth/login/", "host": [ "{{base_url}}" ], "path": [ "api", "auth", "login", "" ] }
+					}
+				},
+				{
+					"name": "Login (Owner 2)",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.access) { pm.collectionVariables.set('token', json.access); }", "if (json.refresh) { pm.collectionVariables.set('refresh', json.refresh); }" ] } } ],
+					"request": {
+						"auth": { "type": "noauth" },
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"email\": \"{{owner2_email}}\", \"password\": \"{{owner2_password}}\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/auth/login/", "host": [ "{{base_url}}" ], "path": [ "api", "auth", "login", "" ] }
+					}
+				},
+				{
+					"name": "Login (Customer 2)",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.access) { pm.collectionVariables.set('token', json.access); }", "if (json.refresh) { pm.collectionVariables.set('refresh', json.refresh); }" ] } } ],
+					"request": {
+						"auth": { "type": "noauth" },
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"email\": \"{{customer2_email}}\", \"password\": \"{{customer2_password}}\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/auth/login/", "host": [ "{{base_url}}" ], "path": [ "api", "auth", "login", "" ] }
+					}
+				},
+				{
+					"name": "Refresh Token",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.access) { pm.collectionVariables.set('token', json.access); }" ] } } ],
+					"request": {
+						"auth": { "type": "noauth" },
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"refresh\": \"{{refresh}}\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/auth/refresh/", "host": [ "{{base_url}}" ], "path": [ "api", "auth", "refresh", "" ] }
+					}
+				},
+				{
+					"name": "Me",
+					"request": {
+						"method": "GET",
+						"url": { "raw": "{{base_url}}/api/auth/me/", "host": [ "{{base_url}}" ], "path": [ "api", "auth", "me", "" ] }
+					}
+				}
+			]
+		},
+		{
+			"name": "Admin - Users",
+			"item": [
+				{
+					"name": "List Users",
+					"request": {
+						"method": "GET",
+						"url": { "raw": "{{base_url}}/api/users/", "host": [ "{{base_url}}" ], "path": [ "api", "users", "" ] }
+					}
+				},
+				{
+					"name": "Create Owner",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.id) { pm.collectionVariables.set('user_id', json.id); }" ] } } ],
+					"request": {
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"email\": \"{{owner_email}}\", \"password\": \"{{owner_password}}\", \"role\": \"owner\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/users/", "host": [ "{{base_url}}" ], "path": [ "api", "users", "" ] }
+					}
+				},
+				{
+					"name": "Block User",
+					"request": {
+						"method": "PATCH",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"is_blocked\": true }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/users/{{user_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "users", "{{user_id}}", "" ] }
+					}
+				},
+				{
+					"name": "Unblock User",
+					"request": {
+						"method": "PATCH",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"is_blocked\": false }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/users/{{user_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "users", "{{user_id}}", "" ] }
+					}
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"url": { "raw": "{{base_url}}/api/users/{{user_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "users", "{{user_id}}", "" ] }
+					}
+				}
+			]
+		},
+		{
+			"name": "Restaurants",
+			"item": [
+				{
+					"name": "List Restaurants",
+					"request": {
+						"method": "GET",
+						"url": { "raw": "{{base_url}}/api/restaurants/", "host": [ "{{base_url}}" ], "path": [ "api", "restaurants", "" ] }
+					}
+				},
+				{
+					"name": "Create Restaurant (Owner)",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.id) { pm.collectionVariables.set('restaurant_id', json.id); }" ] } } ],
+					"request": {
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"name\": \"Vij-s\", \"description\": \"Contemporary Indian cuisine in South Granville, Vancouver.\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/restaurants/", "host": [ "{{base_url}}" ], "path": [ "api", "restaurants", "" ] }
+					}
+				},
+				{
+					"name": "Get Restaurant",
+					"request": {
+						"method": "GET",
+						"url": { "raw": "{{base_url}}/api/restaurants/{{restaurant_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "restaurants", "{{restaurant_id}}", "" ] }
+					}
+				},
+				{
+					"name": "Update Restaurant (Owner)",
+					"request": {
+						"method": "PATCH",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"description\": \"Updated description\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/restaurants/{{restaurant_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "restaurants", "{{restaurant_id}}", "" ] }
+					}
+				},
+				{
+					"name": "Block Restaurant (Admin)",
+					"request": {
+						"method": "PATCH",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"is_blocked\": true }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/restaurants/{{restaurant_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "restaurants", "{{restaurant_id}}", "" ] }
+					}
+				},
+				{
+					"name": "Delete Restaurant",
+					"request": {
+						"method": "DELETE",
+						"url": { "raw": "{{base_url}}/api/restaurants/{{restaurant_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "restaurants", "{{restaurant_id}}", "" ] }
+					}
+				}
+			]
+		},
+		{
+			"name": "Meals",
+			"item": [
+				{
+					"name": "Create Meal - Lamb Popsicles (Owner)",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.id) { pm.collectionVariables.set('meal_id', json.id); }" ] } } ],
+					"request": {
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"restaurant\": {{restaurant_id}}, \"name\": \"Lamb Popsicles\", \"description\": \"Signature wine-marinated lamb chops\", \"price\": \"36.00\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/meals/", "host": [ "{{base_url}}" ], "path": [ "api", "meals", "" ] }
+					}
+				},
+				{
+					"name": "Create Meal - Mango Lassi (Owner)",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.id) { pm.collectionVariables.set('fries_id', json.id); }" ] } } ],
+					"request": {
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"restaurant\": {{restaurant_id}}, \"name\": \"Mango Lassi\", \"description\": \"Sweet yogurt mango drink\", \"price\": \"7.00\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/meals/", "host": [ "{{base_url}}" ], "path": [ "api", "meals", "" ] }
+					}
+				},
+				{
+					"name": "List Meals by Restaurant",
+					"request": {
+						"method": "GET",
+						"url": { "raw": "{{base_url}}/api/meals/?restaurant={{restaurant_id}}", "host": [ "{{base_url}}" ], "path": [ "api", "meals", "" ], "query": [ { "key": "restaurant", "value": "{{restaurant_id}}" } ] }
+					}
+				},
+				{
+					"name": "Update Meal (Owner)",
+					"request": {
+						"method": "PATCH",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"price\": \"11.50\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/meals/{{meal_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "meals", "{{meal_id}}", "" ] }
+					}
+				}
+			]
+		},
+		{
+			"name": "Coupons",
+			"item": [
+				{
+					"name": "Create Coupon (Admin)",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.code) { pm.collectionVariables.set('coupon_code', json.code); }" ] } } ],
+					"request": {
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"code\": \"WELCOME15\", \"discount_percentage\": \"15.00\", \"is_active\": true }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/coupons/", "host": [ "{{base_url}}" ], "path": [ "api", "coupons", "" ] }
+					}
+				},
+				{
+					"name": "List Coupons (Admin)",
+					"request": {
+						"method": "GET",
+						"url": { "raw": "{{base_url}}/api/coupons/", "host": [ "{{base_url}}" ], "path": [ "api", "coupons", "" ] }
+					}
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Place Order (Customer)",
+					"event": [ { "listen": "test", "script": { "type": "text/javascript", "exec": [ "const json = pm.response.json();", "if (json.id) { pm.collectionVariables.set('order_id', json.id); }" ] } } ],
+					"request": {
+						"method": "POST",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"restaurant_id\": {{restaurant_id}}, \"items\": [ { \"meal_id\": {{meal_id}}, \"quantity\": 1 }, { \"meal_id\": {{fries_id}}, \"quantity\": 2 } ], \"tip_amount\": \"5.00\", \"coupon_code\": \"{{coupon_code}}\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/orders/", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "" ] }
+					}
+				},
+				{
+					"name": "Get Order (items + status history)",
+					"request": {
+						"method": "GET",
+						"url": { "raw": "{{base_url}}/api/orders/{{order_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "{{order_id}}", "" ] }
+					}
+				},
+				{
+					"name": "Set Status - Processing (Owner)",
+					"request": {
+						"method": "PATCH",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"status\": \"processing\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/orders/{{order_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "{{order_id}}", "" ] }
+					}
+				},
+				{
+					"name": "Set Status - In Route (Owner)",
+					"request": {
+						"method": "PATCH",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"status\": \"in_route\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/orders/{{order_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "{{order_id}}", "" ] }
+					}
+				},
+				{
+					"name": "Set Status - Delivered (Owner)",
+					"request": {
+						"method": "PATCH",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"status\": \"delivered\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/orders/{{order_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "{{order_id}}", "" ] }
+					}
+				},
+				{
+					"name": "Set Status - Received (Customer)",
+					"request": {
+						"method": "PATCH",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"status\": \"received\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/orders/{{order_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "{{order_id}}", "" ] }
+					}
+				},
+				{
+					"name": "Cancel Order",
+					"request": {
+						"method": "PATCH",
+						"header": [ { "key": "Content-Type", "value": "application/json" } ],
+						"body": { "mode": "raw", "raw": "{ \"status\": \"canceled\" }", "options": { "raw": { "language": "json" } } },
+						"url": { "raw": "{{base_url}}/api/orders/{{order_id}}/", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "{{order_id}}", "" ] }
+					}
+				},
+				{
+					"name": "List Orders (scoped by role)",
+					"request": {
+						"method": "GET",
+						"url": { "raw": "{{base_url}}/api/orders/", "host": [ "{{base_url}}" ], "path": [ "api", "orders", "" ] }
+					}
+				}
+			]
+		}
+	]
+}
